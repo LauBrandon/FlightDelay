@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit the Row</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+        }
+        
+        section {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+            font-size: 16px;
+            width: 10%;
+        }
+
+        input[type="text"]#search {
+            width: 30%; 
+        }
+
+        
+        input[type="submit"], input[type="reset"] {
+            padding: 8px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        table {
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+    </style>
+
+  
+</head>
+<body>
+    <header>
+        <h1>Edit the Row</h1>
+    </header>
+    <form action="/" method="GET">
+        <input type="submit" style="margin-right: 10px;" value="Back to Main">
+    </form>
+
+
+    <table>
+        <thead>
+        <tr>
+        <th>Flight Number</th>
+        <th>Tail Number</th>
+        <th>Airlinecode</th>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Date</th>
+        <th>Scheduled Departure Time</th>
+        <th>Scheduled Arrival Time</th>
+        <th> Delayed Time</th>
+        </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td><%= data['flightNumber'] %></td>
+                <td><%= data['tailNumber'] %></td>
+                <td><%= data['airlineCode'] %></td>
+                <td><%= data['origin'] %></td>
+                <td><%= data['destination'] %></td>
+                <td><%= data['date'] %></td>
+                <td><%= String(data['departureTime']).padStart(4, '0').replace(/(\d{2})(\d{2})/, "$1:$2") %></td>
+                <td><%= String(data['arrivalTime']).padStart(4, '0').replace(/(\d{2})(\d{2})/, "$1:$2") %></td>
+                <td><%= data['delayedTime'] %></td>
+              
+            </tr>
+        </tbody>
+    </table>
+            
+
+    <section>
+        <form action="/update" method="POST">
+            
+            <input type="hidden" name="flightNumber2" value="<%= data['flightNumber']%>">
+            <input type="hidden" name="tailNumber2" value="<%= data['tailNumber'] %>">
+            <input type="hidden" name="airlineCode2" value="<%= data['airlineCode'] %>">
+            <input type="hidden" name="origin2" value="<%= data['origin'] %>">
+            <input type="hidden" name="destination2" value="<%= data['destination'] %>">
+            <input type="hidden" name="date2" value="<%=data['date'] %>">
+            <input type="hidden" name="departureTime2" value="<%= data['departureTime'] %>">
+            <input type="hidden" name="arrivalTime2" value="<%= data['arrivalTime'] %>">
+            <input type="hidden" name="delayedTime2" value="<%= data['delayedTime'] %>">
+
+
+            <label for="flightNumber">Flight Number:</label>
+            <input type="text" id="flightNumber" name="flightNumber" required>
+            <label for="tailNumber">Tail Number:</label>
+            <input type="text" id="tailNumber" name="tailNumber" required>
+            <label for="airlineCode">Airline Code:</label>
+            <input type="text" id="airlineCode" name="airlineCode" required>
+            <label for="origin">Origin:</label>
+            <input type="text" id="origin" name="origin" required>
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required>
+            <label for="date">Date:</label>
+            <input type="text" id="date" name="date" placeholder="YYYY-m-d" pattern= "[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}" required>
+            <br>
+            <label for="departureTime">Scheduled Departure Time:</label>
+            <input type="text" id="departureTime" name="departureTime" placeholder="HH:MM" pattern="[0-9]{2}:[0-9]{2}" required>
+            <label for="arrivalTime">Scheduled Arrival Time:</label>
+            <input type="text" id="arrivalTime" name="arrivalTime" placeholder="HH:MM" pattern="[0-9]{2}:[0-9]{2}" required>
+            <label for="delayedTime">Delayed Time:</label>
+            <input type="text" id="delayedTime" name="delayedTime" required>
+            
+            <input type="submit" value="Update Flight">
+            <input type="reset" value="Clear Form">
+        </form>
+
+        <table>
+            </tbody>
+        </table>
+        </section>
+        </body>
+</html>

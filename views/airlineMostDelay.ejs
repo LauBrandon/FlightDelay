@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airline with the most delayed Flights</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+        }
+        
+        section {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+            font-size: 16px;
+            width: 10%;
+        }
+
+        input[type="text"]#search {
+            width: 30%; 
+        }
+
+        
+        input[type="submit"], input[type="reset"] {
+            padding: 8px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        table {
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+    </style>
+
+  
+</head>
+<body>
+    <header>
+        <h1>Airline with the most Delayed Flights</h1>
+    </header>
+    <section>
+        <form action="/" method="GET">
+            <input type="submit" style="margin-right: 10px;" value="Back to Main">
+        </form>
+
+        <table>
+            <thead>
+            <tr>
+            <th>Airline</th>
+            <th>Number of Delayed Flights</th>
+            <th>Message</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <% data.forEach(function(row) { %>
+                <tr>
+                    <td><%= row.airlineName %></td>
+                    <td><%= row.mostDelays %></td>
+                    <td><%= row.message2 %></td>
+
+                </tr>
+                <% });%>
+
+        
+        
+            </tbody>
+        </table>
+        </section>
+        </body>
+</html>
