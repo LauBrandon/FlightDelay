@@ -1,4 +1,4 @@
-# Team003-Loading
+# Flight Delay Dashboard
 This is a CS411 project repository for team003 for Spring 2023.
 
 # Final Demo Video
@@ -9,5 +9,5 @@ Kelly - Database Design, ER Diagram, Relation Schema, Index Analysis
 <br>
 Tony - Front-end application, Database Implementation
 <br>
-Brandon - Store Procedure, Trigger, Database Implementation
+Brandon - Database Design, ER Diagram, Store Procedure, Trigger, Database Implementation
 
